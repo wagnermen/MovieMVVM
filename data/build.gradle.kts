@@ -39,8 +39,6 @@ dependencies {
     val retrofitVersion = "2.9.0"
     val roomVersion = "2.5.0"
 
-    implementation(project(":domain"))
-
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -53,6 +51,7 @@ dependencies {
 
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
 
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
