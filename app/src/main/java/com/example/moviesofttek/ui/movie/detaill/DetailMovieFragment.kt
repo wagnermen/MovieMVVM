@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import coil.load
 import com.example.domain.movies.model.UpcomingMovies
 import com.example.moviesofttek.R
@@ -18,18 +19,13 @@ class DetailMovieFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }*/
         upcomingMovies = arguments?.getSerializable("detailMovie") as UpcomingMovies
-        Log.d("miObjeto", upcomingMovies.toString())
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDetailMovieBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -41,6 +37,9 @@ class DetailMovieFragment : Fragment() {
         binding.textViewDescription.text = upcomingMovies.overview
         binding.imageViewPoster.load("https://image.tmdb.org/t/p/w500/${upcomingMovies.posterPath}")
         binding.imageViewBackground.load("https://image.tmdb.org/t/p/w500/${upcomingMovies.backdropPath}")
+
+        val fadeInAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.image_anim)
+        binding.imageViewBackground.startAnimation(fadeInAnimation)
     }
 
 }

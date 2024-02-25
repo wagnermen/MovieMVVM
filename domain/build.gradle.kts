@@ -47,6 +47,12 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    testImplementation("org.mockito:mockito-core:3.12.4")
+    testImplementation("io.mockk:mockk:1.12.2")
+    androidTestImplementation("io.mockk:mockk-android:1.12.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")

@@ -12,7 +12,10 @@
         tools:layout="@layout/fragment_upcoming_movie" >
         <action
             android:id="@+id/action_upcomingMovieFragment_to_detailMovieFragment"
-            app:destination="@id/detailMovieFragment" />
+            app:destination="@id/detailMovieFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in" />
         <argument
             android:name="movie"
             app:argType="com.example.domain.movies.model.UpcomingMovies" />
@@ -29,6 +32,6 @@
             android:id="@+id/action_loginFragment_to_upcomingMovieFragment"
             app:destination="@id/upcomingMovieFragment"
             app:popUpTo="@+id/nav_graph"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

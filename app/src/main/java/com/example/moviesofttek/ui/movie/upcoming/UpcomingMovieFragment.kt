@@ -48,7 +48,6 @@ class UpcomingMovieFragment : BaseFragment() {
         }
         upcomingViewModel.upcomingMovie.observe(viewLifecycleOwner) {
             if (it?.isNotEmpty() == true) {
-                Log.d("listaInicio:", "$it")
                 setAdapter(it)
             }else {
                 Toast.makeText(

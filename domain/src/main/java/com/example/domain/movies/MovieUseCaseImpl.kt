@@ -1,6 +1,5 @@
 package com.example.domain.movies
 
-import android.util.Log
 import com.example.data.local.UpcomingMoviesDao
 import com.example.data.local.UpcomingMoviesEntity.Companion.toMoviesDataEntity
 import com.example.data.remote.api.ApiMovieService
@@ -23,7 +22,6 @@ class MovieUseCaseImpl @Inject constructor(
                 if (!isOnline) {
                     val moviesFromRoom = upcomingMoviesDao.getMovies()
                     if (moviesFromRoom.isNotEmpty()) {
-                        Log.d("clientsUSeCase3", "room: ")
                         return@withContext Resource.Success(mapEntityToMovies(moviesFromRoom))
                     }
                 }
@@ -39,7 +37,6 @@ class MovieUseCaseImpl @Inject constructor(
                     Resource.Error(result.toString())
                 }
             } catch (e: Exception) {
-                Log.d("clientsUSeCase3", "insertClient: ${e.message}")
                 Resource.Error(e.message)
             }
         }
