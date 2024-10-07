@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 open class BaseFragment: Fragment() {
@@ -18,8 +19,7 @@ open class BaseFragment: Fragment() {
         super.onCreate(savedInstanceState)
         initLoader()
         if (!isNetworkAvailable(requireContext())) {
-            // No hay conexión a Internet, manejar el caso aquí
-            // Por ejemplo, mostrar un mensaje al usuario o cargar datos locales
+            Toast.makeText(requireContext(), "No hay conexión a internet", Toast.LENGTH_LONG).show()
         }
     }
 
